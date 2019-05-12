@@ -1,0 +1,15 @@
+= form_for @user, html: {class: "ui form"} do |f|
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :las_name
+    = f.text_field :las_name
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.submit "sign up", class: "ui button"

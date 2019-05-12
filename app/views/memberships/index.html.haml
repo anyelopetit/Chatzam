@@ -1,0 +1,22 @@
+.ui.stackable.one.column.grid.center.aligned
+  %h2
+    Add members to #{@room.name}
+    .sub.header
+      = link_to "go to #{@room.name}",room_path(@room)
+    .ui.stackable.two.column.grid
+      .column
+        .ui.segment
+          %h3 Current Members
+          %ul#member-list
+            - @memberships.each do |member|
+              .ui.segment
+                %li= member.name
+      .column
+        .ui.segment
+          %h3 Members to add
+          %ul#add-users
+            - @users.each do |user|
+              %li
+                .ui.segment
+                  = user.username
+                  %input{:id => "#{user.id}-add-member", :type => "checkbox"}/

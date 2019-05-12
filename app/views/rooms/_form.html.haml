@@ -1,0 +1,5 @@
+= form_for room, html: {class: "ui form"} do |f|
+  .field
+    .ui.action.input
+      = f.text_field :name, placeholder: "create new room"
+      = f.submit "Create room", class: "ui button primary"

@@ -1,0 +1,8 @@
+.comment
+  .content
+    %a.author= message.user.username
+    .metadata
+      %span.date
+        = message.created_at.strftime('%a %B %e')
+    .text
+      = message.content

@@ -1,0 +1,3 @@
+= form_for message, html: {class: "ui reply form"} do |f|
+  = f.hidden_field :room_id, value: room.id
+  = f.text_field :content, autocomplete: :off, placeholder: "type message here"

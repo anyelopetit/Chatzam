@@ -1,0 +1,12 @@
+-# = react_component("Home", prerender: true)
+
+.ui.masthead.center.aligned.segment
+  %h1.ui.huge.header
+    Action Cable Chat
+    .sub.header
+      Example of how to quickly integrate websockets in rails 5 using action cable.
+  - if logged_in?
+    = link_to "Rooms", rooms_path, class: "ui button primary"
+  - else
+    = link_to "Login", new_session_path, class: "ui button"
+    = link_to "Signup", new_user_path, class: "ui button primary"

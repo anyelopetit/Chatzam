@@ -1,0 +1,6 @@
+%h2.ui.center.aligned.header Your Chatrooms
+= render partial: "/rooms/form", locals: {room: @room}
+.ui.divider
+.rooms-list
+  .ui.segments
+    = render @rooms

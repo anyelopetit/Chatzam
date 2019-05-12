@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Chatzam
+    = csrf_meta_tags
+    = csp_meta_tag
+    = action_cable_meta_tag
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'home-bundle'
+    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js"}
+  %body
+    %nav.ui.fixed.inverted.main.menu
+      .ui.container
+        .item= link_to "Action Cable Chat", root_path
+        .right.menu
+          - if logged_in?
+            .item.remove= "Welcome back #{current_user.username}"
+            .item= link_to "Rooms", rooms_path
+            .item= link_to "Logout", session_path(current_user), method: :delete
+          - else
+            .item= link_to "Login", new_session_path
+            .item= link_to "Signup", new_user_path
+    .page-content
+      .ui.container
+        - if flash
+          - flash.each do |type, message|
+            .ui.negative.message
+              = message
+        - if @errors
+          - @errors.each do |error|
+            .ui.negative.message
+              = error
+        = yield

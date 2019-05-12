@@ -1,0 +1,22 @@
+#fixed-flash-enter.ui.positive.message
+#fixed-flash-leave.ui.info.message.fixed
+.ui.sixteen.column.stackable.grid
+  .four.wide.column
+    #members-list.ui.segment
+      %h3
+        = @room.name
+        .sub.header members
+      %ul#users-list
+        = render @memberships
+      = link_to "invite people", room_memberships_path(@room)
+  .twelve.wide.column
+    .ui.segment
+      #message-container.ui.comments
+        = render @messages
+      = render partial: "/messages/form", locals: {room: @room, message: @message}
+%h2.text-center
+  = chat_room.title
+  %br/
+  %small
+    = link_to 'Back', rooms_path, class: 'btn btn-primary btn-sx'
+= react_component('Room', { room: @json_object })

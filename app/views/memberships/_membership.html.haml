@@ -1,0 +1,6 @@
+%li
+  = membership.name
+  - if membership.online
+    = image_tag "green_dot.png", id: "#{membership.user_id}-status", class: "active"
+  - else
+    = image_tag "green_dot.png", id: "#{membership.user_id}-status", class: "inactive"
