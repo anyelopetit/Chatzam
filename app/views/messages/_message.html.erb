@@ -1,0 +1,11 @@
+<div class="comment">
+  <div class="content">
+    <a class="author"><%= message.user.username %></a>
+    <div class="metadata">
+      <span class="date"><%= message.created_at.strftime('%a %B %e') %> </span>
+    </div>
+    <div class="text">
+      <%= message.content %>
+    </div>
+  </div>
+</div>

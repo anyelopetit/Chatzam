@@ -1,0 +1,31 @@
+
+<div class="ui positive message" id="fixed-flash-enter"></div>
+<div class="ui info message fixed" id="fixed-flash-leave"></div>
+
+
+<div class="ui sixteen column stackable grid">
+  <div class="four wide column">
+    <div class="ui segment" id="members-list">
+      <h3><%= @room.name %>
+        <div class="sub header">members</div>
+      </h3>
+        <ul id="users-list">
+          <%= render @memberships %>
+        </ul>
+      <%= link_to "invite people", room_memberships_path(@room) %>
+    </div>
+  </div>
+
+
+  <div class="twelve wide column">
+
+    <div class="ui segment">
+      <div class="ui comments" id="message-container">
+        <%= render @messages %>
+      </div>
+
+      <%= render partial: "/messages/form", locals: {room: @room, message: @message} %>
+    </div>
+  </div>
+
+</div>
